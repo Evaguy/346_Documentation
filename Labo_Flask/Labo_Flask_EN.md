@@ -23,7 +23,7 @@ Example of a SSH connection :
 Example of Hasing :
 ![Hashing example](img/hashing_fonctionnement.png)
 
-## First step : Connection SSH on a virtual machine
+## First step : SSH connection on a virtual machine
 For the purposes of this documentation, I'm going to assume that you've already created an SG (Security Group) and a virtual machine on Azure.
 
 Firstly, check if your virtual machine is powered. In Azure, you can do that by going into the "**Virtuals Machines**" section, by searching in the research field on top of the page :
