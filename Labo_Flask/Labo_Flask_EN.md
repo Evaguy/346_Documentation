@@ -48,7 +48,7 @@ Now, we're ready to connect to our virtual machine using SSH ! I'm going to use 
 Firstly, move your private SSH key, which normally you've download it at the end of the configuration of your virtual machine, in the folder "~/.ssh/" on Ubuntu. To reduce errors, I've renamed my key : "**id_rsa.pem**".
 ![Folder in WSL](img/ssh_key_name.png)
 
-Then, change the key permissions in "READ ONLY". To do this, you can use this command in your terminal : 
+Then, change the key permissions to "READ ONLY". To do this, you can use this command in your terminal : 
 ```
 chmod 400 ~/.ssh/name_of_your_key
 ```
