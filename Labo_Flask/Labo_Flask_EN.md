@@ -122,7 +122,7 @@ Now, we're going to create and configure a small Flask project. To get started, 
 ```
 touch name_of_your_file.py
 ```
-You can name whatever you like except "flask.py" so that it doesn't conflict with Flask. I've decided to name it "hello.py". And don't forget the "**.py**" at the end so that the virtual machine knows that's a Python file.
+You can name whatever you like except "flask.py" so that it doesn't conflict with Flask. I've decided to name mine : "hello.py". And don't forget the "**.py**" at the end so that the virtual machine knows that's a Python file.
 ![Python file creation](img/file_created.png)
 
 Then, edit the file with a tool like Nano or Vim. I'll use Nano for this documentation.
