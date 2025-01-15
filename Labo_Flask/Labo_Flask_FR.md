@@ -47,21 +47,19 @@ Nous allons maintenant nous connecter sur notre VM en SSH ! Je vais utiliser Ubu
 Pour commencer, déplacez votre clé privée SSH, que normalement vous aurez téléchargé à la fin de la configuration de votre VM, dans votre dossier "~/.ssh/" sous Ubuntu. Pour éviter certaines erreurs, j'ai renommé ma clé en "**id_rsa.pem**".
 ![Dossier WSL](img/ssh_key_name.png)
 
-Si le dossier "~/.ssh" n'est pas présent dans votre répertoire, ou que vous avez l'erreur suivante :
+[//]: <> (A reformuler)
+Si le dossier "~/.ssh" n'est pas présent dans votre répertoire, ou que vous avez l'erreur suivante, en essayant d'accéder au dossier avec votre terminal :
 
 [//]: <> (Ajouter la bonne erreur ici, actuellement incomplete/fausse...)
 ```
 "... no such file or directory" 
 ```
-
 [//]: <> (A reformuler)
 Vous pouvez essayer de lancer une commande SSH. Par exemple, vous pouvez essayer de vous connecter à votre machine virtuelle avec la commande suivante :
 ```
 ssh votre_nom_de_user@l'adresse_ip.de.la.vm
 ```
-
 Normalement, cela vous créera le dossier où vous pourrez déplacer et renommer votre clé.
-
 Ensuite, pour vous connecter sur votre VM, changez les accès sur votre clé privée en "READ ONLY". Pour exécuter cela, vous pouvez effectuer la commande suivante, dans votre terminal : 
 ```
 chmod 400 ~/.ssh/le_nom_de_votre_clé
