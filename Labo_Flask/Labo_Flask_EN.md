@@ -43,8 +43,9 @@ Here, the HTTP connections aren't really necessary, and I'll come back later on 
 
 Finally, you'll need to click on "**Save**", down the page, to create this inbound rule.
  
-Now, we're ready to connect to our virtual machine using SSH ! I'm going to use Ubuntu 22.04.5 LTS on Windows, using WSL2, for this documentation, The handling may be different if you use PowerShell, for example. And I'll connect to my virtual machine, which is a Debian 12 virtual machine. 
+Now, we're ready to connect to our virtual machine using SSH ! I'm going to use Ubuntu 22.04.5 LTS on Windows, using WSL2, for this documentation. The handling may be different if you use PowerShell, for example. And I'll connect to my virtual machine, which is a Debian 12 virtual machine. 
 
+[//]: <> (I don't think the "~/.ssh/" is "provided" with every WSL distro. I've remembered that I had to run the SSH command at least once for it to show... Will need to fix that.)
 Firstly, move your private SSH key, which normally you've download it at the end of the configuration of your virtual machine, in the folder "~/.ssh/" on Ubuntu. To reduce errors, I've renamed my key : "**id_rsa.pem**".
 ![Folder in WSL](img/ssh_key_name.png)
 
