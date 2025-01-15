@@ -1,6 +1,6 @@
 We're going to create a small website, using the library by Pallets called : Flask.
 ## Goals:
-Create a small web application, using Flask, on a virtual machine running on Azure. To create this application, you will only need to use the command line to connect, on this virtual machine, using SSH from a PC.
+Create a small web application, using Flask, on a virtual machine running on Azure. To create this application, you will only use the command line to connect on the virtual machine using SSH.
 ## What's SSH ?
 Secure Shell (SSH for short) is a network protocol for securely sending commands on a machine. It's using the port 22 of TCP, under the transport layer of the OSI model. 
 It's mainly used to connect on a distant machine, using cryptographic keys. By the way, when the protocol is used, there's two key :
