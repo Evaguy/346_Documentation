@@ -184,7 +184,7 @@ The "--host=0.0.0.0" here is necessary because it'll make your page accessible f
 ![Starting Flask](img/flask_running.png)
 
 To stop Flask, use "CTRL+C".
-As you can see, the Flask application is hosting our web page on port 5000. This brings me to my last point in this step. To be able to connect to the web application from any computer, we need to add the last incoming traffic rule, in your security group, which accepts any connection on port 5000 (the port Flask listens to). So here's the configuration we need to do:
+As you can see, the Flask application is hosting our web page on port 5000. This brings me to my last point in this step. To be able to connect to the web application from any computer, we need to add the last incoming traffic rule, in your security group, which accepts any connection on port 5000 (the port Flask listens to). So here's the configuration we need to add, in our SG, to make this works :
 ![Inbound rule Flask port 5000](img/flask5000inbound.png)
 
 Finally, click on "**Save**".
