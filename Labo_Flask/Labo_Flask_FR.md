@@ -44,8 +44,23 @@ Il suffira juste de cliquer, en bas, sur "Enregistrer" pour que la règle soit c
 
 Nous allons maintenant nous connecter sur notre VM en SSH ! Je vais utiliser Ubuntu 22.04.5 LTS sur Windows, en utilisant WSL2, pour cette documentation, la manipulation peut être différente si vous passez par PowerShell, par exemple. Et je me connecterais sur ma VM, qui est une VM Debian 12. 
 
-Pour commencer, déplacez votre clé privée SSH, que normalement vous aurez téléchargé à la fin de la configuration de votre VM, dans votre dossier ~/.ssh/ sous Ubuntu. Pour éviter certaines erreurs, j'ai renommé ma clé en "**id_rsa.pem**".
+Pour commencer, déplacez votre clé privée SSH, que normalement vous aurez téléchargé à la fin de la configuration de votre VM, dans votre dossier "~/.ssh/" sous Ubuntu. Pour éviter certaines erreurs, j'ai renommé ma clé en "**id_rsa.pem**".
 ![Dossier WSL](img/ssh_key_name.png)
+
+Si le dossier "~/.ssh" n'est pas présent dans votre répertoire, ou que vous avez l'erreur suivante :
+
+[//]: <> (Ajouter la bonne erreur ici, actuellement incomplete/fausse...)
+```
+"... no such file or directory" 
+```
+
+[//]: <> (A reformuler)
+Vous pouvez essayer de lancer une commande SSH. Par exemple, vous pouvez essayer de vous connecter à votre machine virtuelle avec la commande suivante :
+```
+ssh votre_nom_de_user@l'adresse_ip.de.la.vm
+```
+
+Normalement, cela vous créera le dossier où vous pourrez déplacer et renommer votre clé.
 
 Ensuite, pour vous connecter sur votre VM, changez les accès sur votre clé privée en "READ ONLY". Pour exécuter cela, vous pouvez effectuer la commande suivante, dans votre terminal : 
 ```
