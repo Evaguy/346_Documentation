@@ -45,10 +45,23 @@ Finally, you'll need to click on "**Save**", down the page, to create this inbou
  
 Now, we're ready to connect to our virtual machine using SSH ! I'm going to use Ubuntu 22.04.5 LTS on Windows, using WSL2, for this documentation. The handling may be different if you use PowerShell, for example. And I'll connect to my virtual machine, which is a Debian 12 virtual machine. 
 
-[//]: <> (I don't think the "~/.ssh/" is "provided" with every WSL distro. I've remembered that I had to run the SSH command at least once for it to show... Will need to fix that.)
 Firstly, move your private SSH key, which normally you've download it at the end of the configuration of your virtual machine, in the folder "~/.ssh/" on Ubuntu. To reduce errors, I've renamed my key : "**id_rsa.pem**".
 ![Folder in WSL](img/ssh_key_name.png)
 
+[//]: <> (To rewrite)
+If the "~/.ssh/" folder isn't there, or if you have the error below, while trying to accessing the folder through your terminal :
+
+[//]: <> (Add the right error here, now it's incomplete/wrong...)
+```
+"... no such file or directory" 
+```
+
+[//]: <> (To rewrite)
+You can try to use a SSH command. For example, you can try to connect to your virtual machine with this command :
+```
+ssh your_username@ip_virtual_machine
+```
+Normally, this command will create the folder, which you can move and rename the key.
 Then, change the key permissions to "READ ONLY". To do this, you can use this command in your terminal : 
 ```
 chmod 400 ~/.ssh/name_of_your_key
