@@ -35,13 +35,13 @@ You'll see every virtuals machines within the same Azure subscription as yours :
 You'll need to research your virtual machine in the list (in my case, it's the machine called : "**debian12-pr38ehf**") and you'll need to check its state. If it's stopped, you'll need to start it, by clicking on its name, then on "**Start**" : 
 ![Starting a virtual machine](img/start_vm.png)
 
-After that, check if your network security group has a inbound trafic rule which accept SSH connection from any sources, in "**Security Group**", then choose your group (for me, I've called mine : SG-Gabin) :
+After that, check if your network security group has a inbound trafic rule which accept SSH connection from any sources, in "**Security Group**", then choose your group (for me, I've called mine : "**SG-Gabin**") :
 ![Network Security Group](img/nsg.png)
 
 Here, the HTTP connections aren't really necessary, and I'll come back later on the "**AllowAnyFlask5000Inbound**". You can chose the same parameters as me, if you haven't configured it :
 ![Inbound SSH rule](img/ssh_inboud.png)
 
-Finally, you'll need to click on "Save", down the page, to create this inbound rule.
+Finally, you'll need to click on "**Save**", down the page, to create this inbound rule.
  
 Now, we're ready to connect to our virtual machine using SSH ! I'm going to use Ubuntu 22.04.5 LTS on Windows, using WSL2, for this documentation, The handling may be different if you use PowerShell, for example. And I'll connect to my virtual machine, which is a Debian 12 virtual machine. 
 
