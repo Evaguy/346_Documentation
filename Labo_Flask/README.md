@@ -2,4 +2,5 @@ In this project, I've configure [Flask](https://flask.palletsprojects.com/en/sta
 
 If anyone wants to translate every images, and fix the spelling in "Labo_Flask_EN.md" then go for it. Don't think I'll do it... For me the english documentation is done
 ## TODO :
-* nothing planned for this project :)
+* just small things here and there in both documentation (read comments in the files :-))
+* nothing "big" planned for this project
