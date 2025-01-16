@@ -1,4 +1,6 @@
-how to configure an NSG in azure. need to finish and add the documentation tho
+how to configure a VN and test it with two VMs, in Azure. 
 
 ## TODO :
+* fix image
+* fix syntax
 * translate it into English
