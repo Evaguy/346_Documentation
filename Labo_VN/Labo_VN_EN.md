@@ -129,7 +129,6 @@ The difference between a public IP address and a private IP address is that the 
 ## Fourth steps : Communication tests
 To check if our machines can communicate well, in our virtual network, we can "ping".
 
-[//]: <> (Little something to add in the french documentation about ping)
 "Ping" is the name of a command used to test the communication of a host (in our case, one virtual machine to another) on an network. It's available for every OS that have a networking capability.
 
 Firstly. find the private IP address of the two virtual machine, with another useful command in your terminal :
@@ -138,16 +137,15 @@ Firstly. find the private IP address of the two virtual machine, with another us
 ip a
 ```
 
-[//]: <> (Like the ping paragraph, but for ip)
-The ip command is a Linux networking tool for configuring/showing your network interfaces. Compared to ifconfig (command that's part of the older net-tools package), it provides additional functionalities and a more consistent syntax.
+The "ip" command is a Linux networking tool for configuring/showing your network interfaces. Compared to "ifconfig" (command that's part of the older net-tools package), it provides additional functionalities and a more consistent syntax.
 
-For exemple, here I've used the IP command with the option "a", so that it can show me every single info, including the private IP address of the virtual machines (what is highlighted in the screenshot down below).
+For example, here I've used the "ip" command with the option "a", so that it can show me every single info, including the private IP addresses of the virtual machines (what is highlighted in the screenshot down below).
 
 [//]: <> (Check here if I need to blurred something here, I don't want people doxing me :p)
 [//]: <> (Don't think there's a lot of infos, but just to be sure.)
 !["ip a" done in both terminals](img/command_ip_a.png)
 
-We can see that my first machine (the one that's on top) has the IP address "192.168.2.4/24", and the second machine (the one on that's on the bottom) has the IP address "192.168.2.5/24". We can also see that's in the private IP range I've configure in the beginning of the documentation.
+We can see that my first machine (the one that's on top) has the IP address "192.168.2.4/24", and the second machine (the one on that's on the bottom) has the IP address "192.168.2.5/24". We can also see that's in the private IP range I've configure in the beginning.
 
 So now that we have the private IP address of our virtual machines, we can finally ping them each other. So the first machine will ping the second machine and the second machine will ping the first machine. In my case the ping command for the first machine is :
 
