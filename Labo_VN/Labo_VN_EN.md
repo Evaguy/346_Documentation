@@ -67,18 +67,18 @@ If you have a network security group (NSG), you can add it, in the security sect
 
 ![Adding NSG](img/nsg_added.png)
 
-L'avantage de définir votre groupe de sécurité réseau sur votre sous-réseau est de pouvoir filtrer le trafic, de votre réseau virtuel, avec les règles de votre groupe de sécurité réseau. Comme avec un pare-feu (firewall). Donc, cela rajoute une couche de sécurité en plus. De cette manière, en définissant des règles précises, vous protégez vos machines virtuelles des attaques extérieures et vous empêchez les accès non autorisés.
+The advantage of adding your network security group on your subnet is that you can filter your virtual network traffic using the rules of your network security group (just like with a firewall). This adds another layer of security. In this way, by defining precise rules, you protect your virtual machines from external attacks and prevent unauthorized access.
 
-Après avoir ajouté votre groupe de sécurité réseau (ou pas), cliquez sur le bouton "Ajouter" tout en bas de la page. Vous pourrez ensuite voir dans la section où vous avez configuré la plage d'adresse IP privée, votre sous-réseau.
+After adding your network security group (or not), click on "Add" down the page. You'll be able to see, in the section where you've configure the private IP addresses, your subnet.
 
 ![Showing subnet range](img/show_range.png)
 
-Pour finir, cliquez sur "Vérifier + créer", puis sur "Créer".
+Finally, click on "Verifiy + create", then on "Create".
 
-### Définir d'autres DNS dans le réseau virtuel
-Cette étape est totalement optionnel, mais je vais quand même l'expliquer dans cette documentation.
+### Using another DNS for your virtual network
+This step is totally not requiered, but I'll still explain it in this documentation.
 
-Il est possible de configurer un DNS, au lieu d'utiliser ceux directement fournit par Azure, dans les paramètres de votre réseau virtuel. Pour effectuer cela, recherchez, dans la barre de recherche "Réseau virtuels", puis dans la liste ci-dessous, recherchez votre réseau virtuel. Ensuite dans la barre de rechercher, qui se situe à gauche de la page, recherchez "Serveurs DNS", et choisissiez "Personnalisé".
+It's possible to configure a DNS, other than using the ones from Azure directly, in the settings of your virtual network. To do this, find your virutal network in the section "Virtual network". Then search in the research box, on the left of the page, "DNS Servers", and choose "Customized".
 
 There's multiple free DNS servers, in my case, I've chossen the ones from Cloudflare (1.1.1.1 and 1.0.0.1)
 
