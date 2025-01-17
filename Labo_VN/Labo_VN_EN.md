@@ -86,64 +86,76 @@ There's multiple free DNS servers, in my case, I've chossen the ones from Cloudf
 
 Click on "Save" to save the modifications.
 
-## Deuxième étape : Ajout de machines virtuelles dans le réseau virtuel
-Pour ajouter des machines virtuelles dans votre réseau virtuel, vous devrez passer par l'interface réseau de celle-ci :
+## Second step : Adding virtual machines in the virtual network
+To add virtual machines in your virtual network, you'll need to use its network interface :
 
-![Network extension of a virtual machine](img/ext_network.png)
+![Network interface of a virtual machine](img/ext_network.png)
 
-Ces options se mettront automatiquement lorsque vous créez une nouvelle machine virtuelle. Cependant, il n'est pas possible d'ajouter des machines virtuelles déjà créées dans votre réseau virtuel.
+These options will appeared automatically when you create a new virtual machine. However, it is not possible to add already created virtual machines inside your virtual network.
 
-## Troisième étape : Connexion SSH aux machines virtuelles
-Pour la connexion en SSH, voici comme cela va se dérouler :
+[//]: <> (Honestly, this is kinda dumb ^.)
+[//]: <> (Like, there's a way to do it without re-creating VMs.)
+[//]: <> (But you have to do some funky shit before you finally get it.)
+
+## Third step : SSH connection to the virtual machines
+For the SSH connection, here's how I'll do it :
 
 ![SSH connection diagram to my machines](img/schéma_projet_réseau_virtuel(1).jpg)
 
-D'abord, je lancerais deux instances Linux en utilisant WSL2 (j'utiliserais Ubuntu pour me connecter sur ma première machine, puis Kali Linux pour me connecter sur ma deuxième machine).
+Firstly, I'll start two instances of Linux using WSL (Ubuntu to connect on my first machine, and Kali Linux to connect to my second machine)
 
 ![WSL machines](img/wsl_machines.png)
 
-Ensuite, j'ai effectué les mêmes étapes ci-dessous deux fois pour me connecter aux machines virtuels sur Azure :
-- Déplacer la clé dans le dossier "~/.ssh/".
-- Changer les accès de la clé en "READ ONLY".
-- Connexion sur la machine en utilisant SSH, avec l'adresse IP de la machine virtuel.
+Next, I've did the same steps below, on both machine, to connect on the virtual machines in Azure :
+- Move the private SSH key in the folder "~/.ssh/".
+- Change its permission to "READ ONLY".
+- Connection using SSH, with the public IP adresse of the virtual machine.
 
-[//]: <> (A ajouter le lien vers l'autre doc)
-(i) voir doc labo flask pour plus d'info
+[//]: <> (Add link to other doc here)
+(i) For more informations about these steps, read this documentation.
 
-![SSSH connection to the virtuals machine](img/steps_to_ssh.png)
-La différence entre une adresse IP publique est une adresse IP privé est que les adresse IP publique sont utilisées pour interagir avec Internet, elles ne peuvent pas être utilisé dans un réseau local privé, comparé aux adresse IP privée. Et voici les plages disponibles des adresses IP publique :
-- De 1.0.0.0 à 9.255.255.255
-- De 11.0.0.0 à 126.255.255.255
-- De 129.0.0.0 à 169.253.255.255
-- De 169.255.0.0 à 172.15.255.255
-- De 172.32.0.0 à 191.0.1.255
-- De 192.0.3.0 à 192.88.98.255
-- De 192.88.100.0 à 192.167.255.255
-- De 192.169.0.0 à 198.17.255.255
-- De 198.20.0.0 à 223.255.255.255
+![SSH connection to the virtuals machine](img/steps_to_ssh.png)
+The difference between a public IP address and a private IP address is that the public ones are used for interacting on the Internet, they cannot be used in a private network, compared to the private ones. And here's their ranges :
+- From 1.0.0.0 to 9.255.255.255
+- From 11.0.0.0 to 126.255.255.255
+- From 129.0.0.0 to 169.253.255.255
+- From 169.255.0.0 to 172.15.255.255
+- From 172.32.0.0 to 191.0.1.255
+- From 192.0.3.0 to 192.88.98.255
+- From 192.88.100.0 to 192.167.255.255
+- From 192.169.0.0 to 198.17.255.255
+- And finally, from 198.20.0.0 to 223.255.255.255
 
-## Quatrième étape : Test de communication
-Pour vérifier si les deux machines, dans notre réseau virtuel, peuvent bien communiquer, on peut effectuer la commande "ping".
+## Fourth steps : Communication tests
+To check if our machines can communicate well, in our virtual network, we can "ping".
 
-Tout d'abord, trouvez les adresses IP privé des deux machines virtuelles avec la commande suivante, dans votre terminal :
+[//]: <> (Little something to add in the french documentation about ping)
+"Ping" is the name of a command used to test the communication of a host (in our case, one virtual machine to another) on an network. It's available for every OS that have a networking capability.
+
+Firstly. find the private IP address of the two virtual machine, with another useful command in your terminal :
 
 ```
 ip a
 ```
 
+[//]: <> (Like the ping paragraph, but for ip)
+The ip command is a Linux networking tool for configuring/showing your network interfaces. Compared to ifconfig (command that's part of the older net-tools package), it provides additional functionalities and a more consistent syntax.
+
+For exemple, here I've used the IP command with the option "a", so that it can show me every single info, including the private IP address of the virtual machines (what is highlighted in the screenshot down below).
+
 [//]: <> (Check here if I need to blurred something here, I don't want people doxing me :p)
 [//]: <> (Don't think there's a lot of infos, but just to be sure.)
 !["ip a" done in both terminals](img/command_ip_a.png)
 
-On peut voir que ma machine virtuelle n°1 (celle du haut) à l'adresse IP "192.168.2.4/24", et la machine n°2 (celle du bas) à l'adresse IP "192.168.2.5/24".
+We can see that my first machine (the one that's on top) has the IP address "192.168.2.4/24", and the second machine (the one on that's on the bottom) has the IP address "192.168.2.5/24". We can also see that's in the private IP range I've configure in the beginning of the documentation.
 
-Donc, maintenant que nous avons les adresses IP des deux machines virtuelles, on va finalement pouvoir les "pinger" entre eux. C'est-à-dire, votre machine n°1 va effectuer un ping sur l'adresse IP de votre machine n°2, dans mon cas la commande est la suivante :
+So now that we have the private IP address of our virtual machines, we can finally ping them each other. So the first machine will ping the second machine and the second machine will ping the first machine. In my case the ping command for the first machine is :
 
 ```
 ping 192.168.2.5
 ```
 
-Et votre machine n°2 va effectuer un ping sur l'adresse IP de votre machine n°1, voici encore une fois la commande, dans mon cas :
+And for the second machine, the ping command is :
 
 ```
 ping 192.168.2.4
@@ -151,6 +163,6 @@ ping 192.168.2.4
 
 !["ping" done in both terminals](img/pung.png)
 
-Vous devrez normalement voir chaques paquets arrivée à leurs destinations, avec le temps que cela a pris. Si c'est le cas, c'est que les machines peuvent bien communiquer entre elles, et donc c'est réussi !
+You'll normally see every packets arrived to their destinations, with the time that it took. If that's the case, it means that the virtual machine can communicate well in the virtual network !
 
-Pour arrêter les pings, vous pouvez effectuer la combinaison de touche "CTRL+C" dans votre terminal.
+To stop the pings, you can use "CTRL+C" in your terminal.
