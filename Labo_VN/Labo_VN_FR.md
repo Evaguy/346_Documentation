@@ -91,6 +91,10 @@ Pour ajouter des machines virtuelles dans votre réseau virtuel, vous devrez pas
 
 Ces options se mettront automatiquement lorsque vous créez une nouvelle machine virtuelle. Cependant, il n'est pas possible d'ajouter des machines virtuelles déjà créées dans votre réseau virtuel.
 
+[//]: <> (C'est nul ^.)
+[//]: <> (Genre, il y a un technique pour y arriver sans créer de VMs.)
+[//]: <> (Mais c'est très dur à mettre en place, même impossible.)
+
 ## Troisième étape : Connexion SSH aux machines virtuelles
 Pour la connexion en SSH, voici comme cela va se dérouler :
 
@@ -106,7 +110,7 @@ Ensuite, j'ai effectué les mêmes étapes ci-dessous deux fois pour me connecte
 - Connexion sur la machine en utilisant SSH, avec l'adresse IP de la machine virtuel.
 
 [//]: <> (A ajouter le lien vers l'autre doc)
-(i) voir doc labo flask pour plus d'info
+(i) Pour plus d'informations consernant les étapes, lisez cette documentations
 
 ![Connexion en SSH sur mes deux machines](img/steps_to_ssh.png)
 La différence entre une adresse IP publique est une adresse IP privé est que les adresse IP publique sont utilisées pour interagir avec Internet, elles ne peuvent pas être utilisé dans un réseau local privé, comparé aux adresse IP privée. Et voici les plages disponibles des adresses IP publique :
@@ -123,25 +127,31 @@ La différence entre une adresse IP publique est une adresse IP privé est que l
 ## Quatrième étape : Test de communication
 Pour vérifier si les deux machines, dans notre réseau virtuel, peuvent bien communiquer, on peut effectuer la commande "ping".
 
+"Ping" est le nom d'une commande pour tester la communication d'un hôte (dans notre cas, une machine virtuel à une autre) sur un réseau. Elle est présente dans tous les systèmes exploitations qui ont une capacité de mise en réseau.
+
 Tout d'abord, trouvez les adresses IP privé des deux machines virtuelles avec la commande suivante, dans votre terminal :
 
 ```
 ip a
 ```
 
+La commande "ip" est une commande Linux qui permet de montrer tous les interface réseau d'une machine. Comparé à "ifconfig" (command qui vient du paquets net-tools), elle fournit des fonctionnalités supplémentaires et une syntaxe plus cohérente.
+
+Par exemple, ici j'ai utilisé la commande "ip" avec l'option "a", pour qu'elle me montre toutes les informations des interfaces, avec les adresses IP privées des machines virtuelles (ce que j'ai surligné dans la capture d'écran ci-dessous).
+
 [//]: <> (A voir s'il faut masquer une info ici, j'ai pas envie que les gens me dox :p)
 [//]: <> (Je crois qu'il y a pas grand chose mais je veux juste être sûr.)
 ![Commande "ip a" effectué dans le terminal](img/command_ip_a.png)
 
-On peut voir que ma machine virtuelle n°1 (celle du haut) à l'adresse IP "192.168.2.4/24", et la machine n°2 (celle du bas) à l'adresse IP "192.168.2.5/24".
+On peut voir que ma machine virtuelle n°1 (celle du haut) à l'adresse IP "192.168.2.4/24", et la machine n°2 (celle du bas) à l'adresse IP "192.168.2.5/24". On peut aussi voir que la plage d'addresses IP privées est la même que j'ai configurer au début.
 
-Donc, maintenant que nous avons les adresses IP des deux machines virtuelles, on va finalement pouvoir les "pinger" entre eux. C'est-à-dire, votre machine n°1 va effectuer un ping sur l'adresse IP de votre machine n°2, dans mon cas la commande est la suivante :
+Donc, maintenant que nous avons les adresses IP des deux machines virtuelles, on va finalement pouvoir les "pinger" entre eux. C'est-à-dire, la première machine va effectuer un ping sur l'adresse IP de la deuxième machine, dans mon cas la commande est la suivante :
 
 ```
 ping 192.168.2.5
 ```
 
-Et votre machine n°2 va effectuer un ping sur l'adresse IP de votre machine n°1, voici encore une fois la commande, dans mon cas :
+Et la deuxième machine va effectuer un ping sur l'adresse IP de la première machine, voici encore une fois la commande, dans mon cas :
 
 ```
 ping 192.168.2.4
@@ -149,6 +159,6 @@ ping 192.168.2.4
 
 ![Les deux commandes ping effectué dans le terminal](img/pung.png)
 
-Vous devrez normalement voir chaques paquets arrivée à leurs destinations, avec le temps que cela a pris. Si c'est le cas, c'est que les machines peuvent bien communiquer entre elles, et donc c'est réussi !
+Vous devrez normalement voir chaques paquets arrivée à leurs destinations, avec le temps que cela a pris. Si c'est le cas, c'est que les machines peuvent bien communiquer entre elles !
 
 Pour arrêter les pings, vous pouvez effectuer la combinaison de touche "CTRL+C" dans votre terminal.
