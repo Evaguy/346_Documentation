@@ -22,4 +22,3 @@ And don't forget to add the label : "spelling issue" to your issue !
 
 ## TODO :
 * Finish, add and translate the third documentation about scalability in Azure
-* Add how to request a language in this README.md
