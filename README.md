@@ -1,7 +1,9 @@
 # 346_Documentation
 Documentation of multiple projects in school/EPSIC for the ICT branch 346.
 
-## How can I request a language ?
+## Contributing
+
+### How can I request a language ?
 [//]: <> (To actually rewrite, im almost not sure this is how PR are done lmao)
 Clone the repo on your machine.
 
@@ -13,7 +15,7 @@ Create and add the translated documentation in the right folder (please :p).
 
 Finally do a PR in this repo !
 
-## How can I fix the spelling ?
+### How can I fix the spelling ?
 To fix the spelling in any documentation, you can head into the "Issues" section of this repo, and create a new issue.
 
 The issue name should be clear so that I know which documentation needs to be fixed (ex. small typo in /blabla/blabla.md). It sould also contains where the spelling issues is (ex. this typo is at line 22).
