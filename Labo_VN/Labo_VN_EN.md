@@ -112,7 +112,7 @@ Next, I've did the same steps below, on both machine, to connect on the virtual 
 - Connection using SSH, with the public IP adresse of the virtual machine.
 
 [//]: <> (Add link to other doc here)
-(i) For more informations about these steps, read this documentation.
+(i) For more informations about these steps, please read this documentation.
 
 ![SSH connection to the virtuals machine](img/steps_to_ssh.png)
 The difference between a public IP address and a private IP address is that the public ones are used for interacting on the Internet, they cannot be used in a private network, compared to the private ones. And here's their ranges :
