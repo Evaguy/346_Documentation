@@ -16,7 +16,7 @@ Finally do a PR in this repo !
 ## How can I fix the spelling ?
 To fix the spelling in any documentation, you can head into the "Issues" section of this repo, and create a new issue.
 
-The issue name should be clear so that I know which documentation needs to be fixed (ex. small typo in /blabla/blabla.md)
+The issue name should be clear so that I know which documentation needs to be fixed (ex. small typo in /blabla/blabla.md). It sould also contains where the spelling issues is (ex. this typo is at line 22).
 
 And don't forget to add the label : "spelling issue" to your issue !
 
