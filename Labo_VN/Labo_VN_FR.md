@@ -110,7 +110,7 @@ Ensuite, j'ai effectué les mêmes étapes ci-dessous deux fois pour me connecte
 - Connexion sur la machine en utilisant SSH, avec l'adresse IP de la machine virtuel.
 
 [//]: <> (A ajouter le lien vers l'autre doc)
-(i) Pour plus d'informations consernant les étapes, lisez cette documentations
+(i) Pour plus d'informations consernant les étapes, veuillez consulter cette documentations.
 
 ![Connexion en SSH sur mes deux machines](img/steps_to_ssh.png)
 La différence entre une adresse IP publique est une adresse IP privé est que les adresse IP publique sont utilisées pour interagir avec Internet, elles ne peuvent pas être utilisé dans un réseau local privé, comparé aux adresse IP privée. Et voici les plages disponibles des adresses IP publique :
