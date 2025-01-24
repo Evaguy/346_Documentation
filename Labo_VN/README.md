@@ -1,4 +1,4 @@
-In this project, I've configure a virutal network (VN), for two machine to communicate each other, in Azure.
+In this project, I've configure a [virutal network (VN)](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview), for two machine to communicate each other, in Azure.
 
 This documentation goes around all the settings I had to setup, in Azure, for my virtual network.
 
