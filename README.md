@@ -1,6 +1,18 @@
 # 346_Documentation
 Documentation of multiple projects in school/EPSIC for the ICT branch 346.
 
+## Projects
+Here's all the projects I've done :
+
+### [/Labo_Flask/](https://github.com/Evaguy/346_Documentation/tree/main/Labo_Flask)
+Configuration of a lightweight web application framework called [Flask](https://flask.palletsprojects.com/en/stable/), inside of a virtual machine hosted on Azure.
+
+### [/Labo_VN/](https://github.com/Evaguy/346_Documentation/tree/main/Labo_VN)
+Setup and configuration of a [virtual network (VN)](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) in Azure.
+
+### [/Labo_Scalability/](https://github.com/Evaguy/346_Documentation/tree/main/Labo_Scalability)
+TODO :p
+
 ## Contributing
 
 ### How can I request a language ?
