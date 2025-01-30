@@ -10,7 +10,9 @@ Configuration of a lightweight web application framework called [Flask](https://
 ### [/Labo_VN/](https://github.com/Evaguy/346_Documentation/tree/main/Labo_VN)
 Setup and configuration of a [virtual network (VN)](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) in Azure.
 
-### [/Labo_Scalability/](https://github.com/Evaguy/346_Documentation/tree/main/Labo_Scalability)
+### [/Labo_CMS/](https://github.com/Evaguy/346_Documentation/tree/main/Labo_CMS)
+How to install [Drupal](https://new.drupal.org/home) using [Composer](https://getcomposer.org/) on a virtual machine hosted on Azure.
+
 TODO :p
 
 ## Contributing
