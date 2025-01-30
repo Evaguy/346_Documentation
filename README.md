@@ -34,5 +34,13 @@ The issue name should be clear so that I know which documentation needs to be fi
 
 And don't forget to add the label : "spelling issue" to your issue !
 
+### How can I add details ?
+Head again into the "Issues" section of this repo, and create a new issue.
+
+[//]: <> (To rewrite!!! lol)
+State what details you want to add or modifiy (don't forget to tell me where you want to add them).
+
+This time you'll need to add the label "details missing" to your issue.
+
 ## TODO :
 * Finish, add and translate the third documentation about scalability in Azure
