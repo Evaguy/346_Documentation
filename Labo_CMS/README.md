@@ -1,4 +1,4 @@
-how to do scalability on Azure ig ;).
+How to install Drupal on a virtual machine hosted on Azure
 
 ## TODO :
 * Finish and add the documentation
