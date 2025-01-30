@@ -1,4 +1,4 @@
-How to install Drupal on a virtual machine hosted on Azure
+How to install Drupal on a virtual machine hosted on Azure.
 
 ## TODO :
 * Finish and add the documentation
