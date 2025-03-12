@@ -11,6 +11,7 @@ Pour que le projet fonctionne, nous allons installer plusieurs programmes. Voici
 - [MariaDB](https://mariadb.org/) (SGBD pour créer la BD pour Drupal)
 - [Composer](https://getcomposer.org/) (gestionnaire de dépendances pour PHP)
 - Et [Drupal](https://new.drupal.org/home) (CMS que nous allons utiliser pour ce projet)
+
 Et voici ce qu'on va installer sur notre machine en local :
 - [Java 23](https://www.oracle.com/ch-fr/java/technologies/downloads/) (langage de programmation pour faire fonctionner JMeter)
 - [JMeter](https://jmeter.apache.org/) (pour mesurer la scalabilité de notre site web)
