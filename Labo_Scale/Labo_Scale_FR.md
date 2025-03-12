@@ -34,7 +34,7 @@ Pour installer le serveur web d'Apache, vous pouvez lancer la commande suivante 
 sudo apt install apache2
 ```
 
-![[Capture d'écran 2025-01-29 140409.png]]
+![Installation d'Apache2](img/apt_apache2.png)
 
 Il suffira juste d'entrer "Y" quand votre machine aura trouvé les paquets. Une fois tous les paquets téléchargés, vous pouvez activer et lancer le service avec cette commande :
 
@@ -42,7 +42,7 @@ Il suffira juste d'entrer "Y" quand votre machine aura trouvé les paquets. Une 
 sudo systemctl enable apache2 && sudo systemctl start apache2
 ```
 
-![[Capture d'écran 2025-01-29 141214.png]]
+![Démarrage d'Apachhe2](img/start_apache2.png)
 
 Ici, j'ai ajouté dans la commande les caractères "&&", cela permet d'exécuter deux commandes en une seule fois.
 Pour vérifier si le service est en train de tourner, vous pouvez exécuter la commande suivante, toujours dans votre terminal :
@@ -53,7 +53,7 @@ sudo systemctl status apache2
 
 Vous devrez normalement apercevoir le résultat suivant :
 
-![[Capture d'écran 2025-01-29 141547.png]]
+![Status d'Apache2](img/status_apache2.png)
 
 Pour quitter la "vérification", vous pouvez juste appuyer sur la touche "Q".
 ### 2) Installation de PHP 8.3
@@ -65,7 +65,7 @@ Avant de pouvoir l'installer, nous allons d'abord installer quelques dépendance
 sudo apt install apt-transport-https
 ```
 
-![[Capture d'écran 2025-01-29 142804.png]]
+![Installation Transport-HTTPS](img/apt_transport_https.png)
 
 Ensuite, on va ajouter un dépôt qui va nous permet d'avoir les modules PHP à jour, ainsi que la clé pour y accéder.
 D'abord l'accès au dépôt :
@@ -74,7 +74,7 @@ D'abord l'accès au dépôt :
 sudo curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpp https://packages.sury.org/php/apt.gpg
 ```
 
-![[Pasted image 20250129142913.png]]
+![Ajout du dépôt](img/repo_php.png)
 
 Puis la clé :
 
@@ -82,11 +82,11 @@ Puis la clé :
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 ```
 
-![[Capture d'écran 2025-01-29 142954.png]]
+![Ajout de la clé du dépôt](img/repo_key.png)
 
 Par la suite, on peut relancer la commande "sudo apt update" pour avoir les derniers paquets, du dépôt, à jour.
 
-![[Capture d'écran 2025-01-29 143046.png]]
+![Derniers paquets à jour](img/apt_update.png)
 
 Après avoir mis à jour les derniers paquets, nous allons à présent ajouter quelques modules de PHP qui vont être utiles pour la suite du projet, en utilisant cette commande :
 
@@ -94,7 +94,7 @@ Après avoir mis à jour les derniers paquets, nous allons à présent ajouter q
 sudo apt install php8.3-{cli,common,imap,redis,snmp,xml,mysql,zip,mbstring,curl,gd}
 ```
 
-![[Capture d'écran 2025-01-29 145710.png]]
+![Installation de modules PHP](img/php_modules.png)
 
 Comme dit précédemment, pour que l'installation se lance, il suffira d'entrer la lettre "Y".
 On peut d'ailleurs voir qu'on installe des modules comme : cli, imap, xml, mysql, etc...
@@ -105,7 +105,7 @@ J'ai aussi rajouté un dernier module pour le bon fonctionnement entre PHP et no
 sudo apt install php8.3 libapache2-mod-php8.3
 ```
 
-![[Capture d'écran 2025-01-29 145840.png]]
+![Installation dernier module PHP](img/other_php_modules.png)
 
 Pour vérifier si PHP s'est bien installé, on peut utiliser la commande ci-dessous :
 
@@ -113,7 +113,7 @@ Pour vérifier si PHP s'est bien installé, on peut utiliser la commande ci-dess
 php -v
 ```
 
-![[Capture d'écran 2025-01-29 150020.png]]
+![Vérification de l'installation de PHP](img/php_ver.png)
 
 Et pour vérifier si ces modules se sont bien installé, cette fois-ci, on utilise cette commande :
 
@@ -121,8 +121,10 @@ Et pour vérifier si ces modules se sont bien installé, cette fois-ci, on utili
 php -m
 ```
 
-![[Capture d'écran 2025-01-30 171855.png]]
+![Vérification de l'installation des modules de PHP](img/php_mod.png)
+
 ### 3) Installation de Maria DB
+
 MariaDB est un système de gestion de bases de données (ou sous le sigle SGBD) édité sous la licence GPL. Il s'agit d'un "fork" communautaire de MySQL, un autre SGBD. Nous allons l'utiliser pour créer une base de données pour Drupal.
 D'abord, lancez la commande suivante pour l'installer :
 
@@ -130,7 +132,7 @@ D'abord, lancez la commande suivante pour l'installer :
 sudo apt install mariadb-server
 ```
 
-![[Capture d'écran 2025-01-29 150225.png]]
+![Installation de MariaDB](img/apt_mariadb.png)
 
 Puis, pour activer et lancer ce SGBD, utilisez la commande suivante :
 
@@ -138,7 +140,7 @@ Puis, pour activer et lancer ce SGBD, utilisez la commande suivante :
 sudo systemctl start mariadb && sudo systemctl enable mariadb
 ```
 
-![[Capture d'écran 2025-01-29 150325.png]]
+![Démarrage de MariaDB ](img/start_mariadb.png)
 
 Enfin, pour vérifier l'état de MariaDB, vous pouvez utiliser la commande ci-dessous :
 
@@ -146,8 +148,10 @@ Enfin, pour vérifier l'état de MariaDB, vous pouvez utiliser la commande ci-de
 sudo systemctl status mariadb
 ```
 
-![[Capture d'écran 2025-01-29 150424.png]]
+![Status MariaDB](img/status_mariadb.png)
+
 ### 3.1) Configurations d'une DB Drupal
+
 Avant d'installer les deux derniers programmes (Composer, et Drupal), nous allons configurer une base de données, pour Drupal, en utilisant MariaDB.
 
 Pour se connecter au SGBD, vous pouvez utiliser la commande suivante :
@@ -156,7 +160,7 @@ Pour se connecter au SGBD, vous pouvez utiliser la commande suivante :
 sudo mysql -u root
 ```
 
-![[Capture d'écran 2025-01-29 150530.png]]
+![Connexion au SGBD](img/mysql_connect.png)
 
 Pour commencer, nous allons créer un utilisateur ayant les droits nécessaires pour accéder et manipuler les données des tables de la base de données. Cette étape est indispensable, car ses informations seront requises lors de la configuration de Drupal.
 
@@ -166,7 +170,7 @@ Pour créer un utilisateur, voici la commande qu'il faudra exécuter dans votre 
 CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'votre_pwd_ici';
 ```
 
-![[Capture d'écran 2025-01-29 150828.png]]
+![Création d'un utilisateur dans le SGBD](img/create_db_user.png)
 
 Le nom ici n'a pas vraiment d'importance. Ce qui faut faire vraiment attention, par contre, c'est de ne pas oublier le "localhost" après le nom de l'utilisateur. 
 
@@ -178,7 +182,7 @@ Ensuite, créez la base de données avec cette commande :
 CREATE DATABASE drupal; 
 ```
 
-![[Capture d'écran 2025-01-29 150913.png]]
+![Création d'une BD](img/create_db.png)
 
 Encore une fois, le nom que vous choisissez, pour votre base de données, n'a pas vraiment d'importance, vous pouvez l'appeler comme vous le souhaitez. J'ai choisi "drupal" pour que cela soit en lien avec le projet en question.
 
@@ -188,7 +192,7 @@ Après cela, nous allons ajouter les droits de l'utilisateur, qu'on a créé pr�
 GRANT ALL PRIVILEGES ON drupal.* TO 'drupal'@'localhost';
 ```
 
-![[Capture d'écran 2025-01-29 151159.png]]
+![Ajout des droits sur la BD pour l'utilisateur](img/grant_on_db_user.png)
 
 Pour plus de simplicité, je lui ai mis tous les droits sur toutes les tables de la base de données "drupal".
 
@@ -204,8 +208,10 @@ Puis comme nous n'allons plus utiliser le SGBD, pour l'instant, vous pouvez vous
 EXIT;
 ```
 
-![[Capture d'écran 2025-01-29 151341.png]]
+![Application des droits et déconnexion du SGBD](img/flush_and_exit.png)
+
 ### 4) Installation de Composer
+
 Il y a différentes manières d'installer, et de configurer Drupal. Pour cette documentation, je vais utiliser le logiciel : Composer.
 
 Composer et un gestionnaire de dépendance libre conçu dans le langage de programmation PHP. Il nous permet d'installer des bibliothèques que le projet a besoin.
@@ -216,7 +222,7 @@ Pour pouvoir installer Composer, nous allons d'abord télécharger l'installeur,
 wget -O composer-setup.php https://getcomposer.org/installer
 ```
 
-![[Capture d'écran 2025-01-29 151659.png]]
+![Installation de Composer](img/wget_composer.png)
 
 Puis, vous pouvez le lancer, après que l'installation soit finie :
 
@@ -224,7 +230,7 @@ Puis, vous pouvez le lancer, après que l'installation soit finie :
 sudo php composer-setup.php  --install-dir=/usr/local/bin --filename=composer
 ```
 
-![[Capture d'écran 2025-01-29 151828.png]]
+![Lancement de Composer](img/start_installer_composer.png)
 
 On peut utiliser la commande ci-dessous pour vérifier si l'application s'est bien installée :
 
@@ -232,7 +238,8 @@ On peut utiliser la commande ci-dessous pour vérifier si l'application s'est bi
 composer -v
 ```
 
-![[Capture d'écran 2025-01-30 172031.png]]
+![Vérification de l'installation de Composer](img/composer_ver.png)
+
 ### 5) Installation de Drupal
 
 Finalement, nous allons pouvoir installer Drupal !
@@ -263,7 +270,7 @@ sudo touch drupal.conf
 
 Ici, il faut utiliser le "sudo ", car vous n'aurez pas les droits de modifications dans le dossier "/etc/apache2/sites-available". Le nom n'a pas d'importance.
 
-![[Capture d'écran 2025-01-29 155331.png]]
+![Création du fichier de configuration de Drupal](img/drupal_conf.png)
 
 Pour modifier ce fichier, je vais utiliser l'éditeur de texte "Nano" :
 
@@ -347,7 +354,9 @@ Finalement, redémarrer le système Apache2 :
 ```
 systemctl restart apache2
 ```
+
 ### 5.1) Installation de Drupal, suite
+
 Une fois le fichier configuré, vous pouvez ouvrir votre navigateur de préférence, et entrez l'adresse IP publique de votre machine virtuelle, ainsi que le port HTTP (donc le port 80) de cette manière :
 
 ```
@@ -358,11 +367,11 @@ Vous devrez normalement arriver dans la première section de Drupal qui s'appell
 
 Si vous arrivez sur la page de base d'Apache2 (exemple ci-dessous), essayez de relancer les dernières commandes du point cinq.
 
-![[dEk9g.png]]
+![Page de défaut d'Apache2](img/apache2_def_page.png)
 
 Dans la première section, vous pouvez choisir la langue de Drupal. Pour des raisons de simplicité, j'ai décidé de mettre la langue en anglais. Ensuite, cliquez sur "Save and continue".
 
-![[Capture d'écran 2025-02-02 164512.png]]
+![Language de Drupal](img/drupal_lang.png)
 
 Puis, dans la deuxième section "Choose profile", vous pouvez choisir entre trois installations différentes :
 
@@ -375,7 +384,7 @@ Puis, dans la deuxième section "Choose profile", vous pouvez choisir entre troi
 
 Choisissiez la configuration standard et cliquez, encore une fois, sur "Save and continue".
 
-![[Capture d'écran 2025-02-02 164605.png]]
+![Différentes configurations de Drupal](img/drupal_install_profile.png)
 
 Il est possible que l'installation vous retourne des erreurs concernant des fichiers introuvables, ou des problèmes d'accès. Mais ne vous inquiétez pas, j'ai aussi eu certains de ces problèmes lors de mon installation. Donc, voici les commandes qui faudra exécuter, dans votre terminal, pour résoudre ces problèmes ! 
 
@@ -407,30 +416,31 @@ Après avoir effectué ces commandes, relancer la page de l'installation de Drup
 
 Ici, entrez les informations, que vous avez saisies au chapitre quatre de cette documentation, pour la configuration de la base de données de Drupal. Puis, cliquez sur "Save and continue".
 
-![[Capture d'écran 2025-02-02 165325.png]]
+![Configuration de la BD pour Drupal](img/drupal_db_config.png)
 
 Finalement, Drupal s'installera. Cela peut prendre quelques minutes. 
 
-![[Capture d'écran 2025-02-02 165343.png]]
+![Installation de Drupal](img/drupal_installing.png)
 
 Il suffira, dans la dernière section "Configure site", que vous entrez quelques informations comme le nom de votre site, le compte de maintenance, etc...
 
-![[Capture d'écran 2025-02-02 165535.png]]
+![Dernière configurations de Drupal](img/drupal_config.png)
 
 Normalement, votre site se rafraîchira, et vous accéderez à la page de bienvenue.
 
-![[Capture d'écran 2025-02-02 165631.png]]
+![Page de bienvenue de Drupal](img/drupal_whalecum.png)
 
 ### 6) Création d'un article
+
 Avant de passer au test de performance, nous allons créer un article sur notre site. 
 Pour commencer, cliquer sur le bouton "Content" en haut à gauche de votre site, normalement en dessous de "Manage". 
 Une nouvelle page s'ouvrira, où vous pourrez cliquer ensuite sur le bouton "+ Add content".
 
-![[Capture d'écran 2025-02-24 100144.png]]
+![Page "Content" de Drupal](img/drupal_content.png)
 
 Puis, cliquez sur "Article".
 
-![[Capture d'écran 2025-02-24 100554.png]]
+![Page "Add Content" de Drupal](img/drupal_add_content.png)
 
 Ensuite, une nouvelle page s'affichera. C'est ici où nous allons pouvoir éditer notre article. Il y a plusieurs éléments à prendre en compte :
 - "Title", le titre de l'article.
@@ -442,16 +452,20 @@ Ensuite, une nouvelle page s'affichera. C'est ici où nous allons pouvoir édite
 
 Une fois vos modifications terminées, vous pourrez simplement cliquer sur le bouton "Save", qui se trouve normalement en bas à gauche de votre page.
 
-![[Capture d'écran 2025-02-24 101445.png]]
+![Page de modification d'un article](img/edit_article.png)
 
 L'article s'ouvrira, où vous pourrez voir si vos modifications ont été faites.
 
-![[Capture d'écran 2025-02-24 103239.png]]
+![Article dans Drupal](img/drupal_article_test.png)
+
 ## Deuxième étape, installation JMeter
+
 JMeter est un logiciel libre, écrit en Java, permettant d'effectuer des tests de performance d'applications ou de serveurs selon les protocoles. Il est développé par la Fondation Apache. 
 
 Nous allons l'utiliser pour mesurer le temps de réponse de chaque requête HTTP sur notre site web.
+
 ### 1) Installation de Java 23
+
 Java est un langage de programmation de haut niveau orienté objet. Nous allons installer la version 23 (dernière version officiellement disponible depuis le 17 septembre 2024) pour pouvoir utiliser JMeter.
 
 Tout d'abord, rendez-vous sur le site d'Oracle pour pouvoir télécharger Java 23. Autrement, vous pouvez suivre le lien [ici](https://www.oracle.com/ch-de/java/technologies/downloads/#jdk23-windows).
@@ -487,7 +501,9 @@ java -version
 ![[Capture d'écran 2025-02-05 153210.png]]
 
 Si vous obtenez ce résultat (comme dans la capture d'écran) cela indique que le programme s'est bien installé !
+
 ### 2) Installation de JMeter
+
 Nous allons désormais installer JMeter. Pour l'installer, vous pouvez suivre le lien suivant : [ici](https://jmeter.apache.org/download_jmeter.cgi).
 
 Ensuite, choisissiez le dossier compresser a télécharger selon votre système d'exploitation (préférablement ".tgz" pour Linux et ".zip" pour Windows).
@@ -505,6 +521,7 @@ Normalement, après avoir ouvert le fichier, vous devrez arriver dans JMeter :
 ![[Capture d'écran 2025-02-05 162620.png]]
 
 ### 3) Configuration de JMeter
+
 Avant de pouvoir effectuer des tests sur notre site web Drupal, nous devons configurer JMeter.
 
 D'abord, commencer par sauvegarder votre test. Vous pourrez aussi choisir l'emplacement du fichier de test.
@@ -556,7 +573,9 @@ Dans mon cas, voilà toutes les analyses que j'ai ajoutées dans mon test :
 ![[Capture d'écran 2025-02-27 141751.png]]
 
 N'oubliez pas de sauvegarder votre fichier de tests pour que vous ne perdiez aucunes configurations !
+
 ### 4) Tests des capacités du site web
+
 Pour lancer un test de capacité sur notre site web sur JMeter, après avoir effectuée les différentes configurations, vous pourrez vous rendre dans le menu en haut à gauche, et cliquez sur le triangle vert. Normalement, si vous survolez le triangle, il y aura écrit "Start".
 
 ![[Capture d'écran 2025-03-02 150229.png]]
@@ -582,8 +601,11 @@ Voici les différents résultat que j'ai obtenu :
 | Requêtes envoyées ?   | 50  | 550  | 2884 |
 | Combien de réponses ? | 50  | 550  | 2884 |
 | Latence ?             | 54  | 1443 | 8897 |
+
 Concernant les résultats, on peut apercevoir que la latence est comme "exponentielle" lorsque que le nombre de requêtes augment, ce qui est normal, car à mesure que la charge augmente, notre serveur web se rapproche de ses limites (en termes de performance), et la latence commence à augmenter. Elle augment de manière "exponentielle" parce que vous envoyez des requêtes, plus votre serveur web est surchargé, ce qui ralentit le traitement des requêtes et la transmission des données.
+
 ### 5) Autres tests des capacités du site web
+
 Voici les autres tests que j'ai pu effectuée :
 1. Test 1
 	1. "Number of Threads" = 30
@@ -613,4 +635,5 @@ Et les résultat que j'ai obtenu :
 | Requêtes envoyées ? | 350 | 600 | 3100 | 200 | 500 |
 | Combien de réponses | 350 | 600 | 3100 | 200 | 500 |
 | Latence ?           | 165 | 117 | 5866 | 98  | 38  |
+
 Comme pour les premiers tests que vous aurez effectués, plus il y a de paquets HTTP transmis sur le serveur web, plus la latence est élevé.
