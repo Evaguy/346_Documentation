@@ -472,25 +472,26 @@ Tout d'abord, rendez-vous sur le site d'Oracle pour pouvoir télécharger Java 2
 
 Choisissiez l'OS installé sur votre machine locale. Dans mon cas, ma machine est sous Windows 11, donc je vais dans la section Windows. Cela vous montrera différentes manières d'installer la version 23 de Java, personnellement, je vais utiliser l'installation en MSI (Microsoft System Installer) pour cette documentation.
 
-![[Capture d'écran 2025-02-05 152441.png]]
+![Choix de l'installation de Java](img/java_install_file.png)
 
 Une fois télécharger, ouvrez le fichier.
 
 Cliquez ensuite sur "Next >", quand la fenêtre s'ouvrira.
 
-![[Capture d'écran 2025-02-05 152924.png]]
+![Page de bienvenu de Java](img/java_installer_whalecum.png)
 
 Ici, vous pouvez changer le dossier de destination de Java 23 (pour ma part, je vais le laisser par défaut). Cliquez ensuite sur "Next".
 
+[//]: <> (Je retrouve plus l'image :/)
 ![[Capture d'écran 2025-02-05 152947.png]]
 
 Puis, le téléchargement commencera. Cela peut prendre quelques minutes.
 
-![[Capture d'écran 2025-02-05 153059.png]]
+![Status de l'installation de Java](img/java_installer_status.png)
 
 Une fois le téléchargement fini, vous pouvez cliquer le bouton "Close".
 
-![[Capture d'écran 2025-02-05 153140.png]]
+![Installation fini de Java](img/java_installer_close.png)
 
 Normalement, si l'installation de Java 23 s'est bien passé, vous pouvez ouvrir un CMD et entrez la commande suivante :
 
@@ -498,7 +499,7 @@ Normalement, si l'installation de Java 23 s'est bien passé, vous pouvez ouvrir 
 java -version
 ```
 
-![[Capture d'écran 2025-02-05 153210.png]]
+![Version de Java](img/java_ver.png)
 
 Si vous obtenez ce résultat (comme dans la capture d'écran) cela indique que le programme s'est bien installé !
 
@@ -506,19 +507,19 @@ Si vous obtenez ce résultat (comme dans la capture d'écran) cela indique que l
 
 Nous allons désormais installer JMeter. Pour l'installer, vous pouvez suivre le lien suivant : [ici](https://jmeter.apache.org/download_jmeter.cgi).
 
-Ensuite, choisissiez le dossier compresser a télécharger selon votre système d'exploitation (préférablement ".tgz" pour Linux et ".zip" pour Windows).
+Ensuite, choisissiez le dossier compressé à télécharger selon votre système d'exploitation (préférablement ".tgz" pour Linux et ".zip" pour Windows).
 
-![[Capture d'écran 2025-02-05 155530.png]]
+![Dossier compressé à télécharger de JMeter](img/jmeter_installer_file.png)
 
 Et décompressez le dossier.
 
 Recherchez, dans votre dossier décompressé, le fichier de commande Windows "jmeter.bat" (par exemple, le chemin d'accès de mon fichier "jmeter.bat" est le suivant : C:\Users\gabin\Documents\apache-jmeter-5.6.3\apache-jmeter-5.6.3\bin) et lancez le fichier, pour lancer JMeter. 
 
-![[Capture d'écran 2025-02-05 161013.png]]
+![Fichier de JMeter à ouvrir](img/jmeter_bat.png)
 
 Normalement, après avoir ouvert le fichier, vous devrez arriver dans JMeter :
 
-![[Capture d'écran 2025-02-05 162620.png]]
+![Jmeter](img/jmeter.png)
 
 ### 3) Configuration de JMeter
 
@@ -526,21 +527,21 @@ Avant de pouvoir effectuer des tests sur notre site web Drupal, nous devons conf
 
 D'abord, commencer par sauvegarder votre test. Vous pourrez aussi choisir l'emplacement du fichier de test.
 
-![[Capture d'écran 2025-02-26 152145.png]]
+![Sauvegarde d'un test dans JMeter](img/jmeter_save_test.png)
 
 Ensuite, dans la section "Test Plan", pour faire les choses proprement, vous pouvez renommer votre test. Dans mon cas, je l'ai nommé comme mon fichier de test.
 
-![[Pasted image 20250226152853.png]]
+![Renommage d'un test dans JMeter](img/jmeter_test_plan.png)
 
 Puis ajouter un "Thread Group" dans votre test, en allant dans "Edit", "Add", "Threads (Users)", et finalement "Thread Group".
 
-![[Capture d'écran 2025-02-26 153040.png]]
+![Chemin "Thread Group" dans JMeter](img/jmeter_thread_group.png)
 
 Un "Thread", dans JMeter, est un utilisateur virtuel qui exécute votre test en envoyant de multiples requêtes HTTP à votre serveur web, pour tester la performance de votre site web. Donc, finalement, le "Thread Group" est, mot pour mot, un groupe d'utilisateurs prêts a effectué des requêtes.
 
 Après avoir créé le "Thread Group", celui-ci ouvrira une nouvelle fenêtre. C'est ici où nous allons pouvoir configurer les différents paramètres de notre test.
 
-![[Capture d'écran 2025-02-27 113143.png]]
+![Configuration d'un "Thread Group" dans JMeter](img/jmeter_thread_group2.png)
 
 Il y a certains paramètres à prendre en compte. 
 
@@ -554,23 +555,23 @@ Je vous indiquerai plus tard, dans la documentation, les valeurs des paramètres
 
 Ensuite, ajoutez dans le "Thread Group", un sampler d'une requête HTTP, en allant dans "Edit", "Add", "Sampler", puis "HTTP Request" pour pouvoir précisé les informations de votre site (par exemple : l'IP de celui-ci, ou encore le lien sur l'article précis).
 
-![[Capture d'écran 2025-02-27 135734.png]]
+![Chemin "HTTP Request" dans JMeter](img/jmeter_http_req.png)
 
 Par exemple, voici à quoi ressemble mon sampler HTTP :
 
-![[Capture d'écran 2025-02-27 140713.png]]
+![Un sampler HTTP dans JMeter](img/jmeter_http_request2.png)
 
 Quand vous aurez fini de préciser les paramètres du sampler HTTP, vous pourrez finalement cliquer sur le bouton "Add", qui se trouve normalement tout en bas de la page du sampler, pour pouvoir confirmer vos changements. Une nouvelle ligne, juste en dessous de "Send Parameters With the Request:" devrait s'afficher.
 
-![[Capture d'écran 2025-02-27 140842.png]]
+![Page du sampler HTTP dans JMeter](img/jmeter_idk.png)
 
 Pour finir, et pour avoir les résultats des multiples tests, vous pouvez rajouter des analyses à votre test, en allant encore une fois dans "Edit", "Add", "Listner", et finalement choisissez les analyses que vous voulez ajouter.
 
-![[Capture d'écran 2025-02-27 141339.png]]
+![Les différentes analyses présentent sur JMeter](img/jmeter_listener.png)
 
 Dans mon cas, voilà toutes les analyses que j'ai ajoutées dans mon test :
 
-![[Capture d'écran 2025-02-27 141751.png]]
+![Toutes les analyses dans mon test sur JMeter](img/jmeter_listener2.png)
 
 N'oubliez pas de sauvegarder votre fichier de tests pour que vous ne perdiez aucunes configurations !
 
@@ -578,7 +579,7 @@ N'oubliez pas de sauvegarder votre fichier de tests pour que vous ne perdiez auc
 
 Pour lancer un test de capacité sur notre site web sur JMeter, après avoir effectuée les différentes configurations, vous pourrez vous rendre dans le menu en haut à gauche, et cliquez sur le triangle vert. Normalement, si vous survolez le triangle, il y aura écrit "Start".
 
-![[Capture d'écran 2025-03-02 150229.png]]
+![Lancer un test dans JMeter](img/jmeter_start_test.png)
 
 Voici les paramètres que j'ai tester sur mon site :
 1. Petit test
