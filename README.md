@@ -11,11 +11,9 @@ Configuration of a lightweight web application framework called [Flask](https://
 Setup and configuration of a [virtual network (VN)](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) in Azure.
 
 ### [/Labo_Scale/](https://github.com/Evaguy/346_Documentation/tree/main/Labo_Scale/)
-How to install [Drupal](https://new.drupal.org/home) using [Composer](https://getcomposer.org/) on a virtual machine hosted on Azure.
+How to install and configure [Drupal](https://new.drupal.org/home) using [Composer](https://getcomposer.org/), on a virtual machine hosted on Azure.
 
-There's more things though :-)
-
-TODO :p
+Then, using [JMeter](https://jmeter.apache.org/), test the scalability of the Drupal website.
 
 ## Contributing
 
@@ -45,6 +43,3 @@ Head again into the "Issues" section of this repo, and create a new issue.
 State what details you want to add or modifiy (don't forget to tell me where you want to add them).
 
 This time you'll need to add the label "details missing" to your issue.
-
-## TODO :
-* Finish, add and translate the third documentation about scalability in Azure
