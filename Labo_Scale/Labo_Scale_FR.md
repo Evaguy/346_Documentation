@@ -483,9 +483,6 @@ Cliquez ensuite sur "Next >", quand la fenêtre s'ouvrira.
 
 Ici, vous pouvez changer le dossier de destination de Java 23 (pour ma part, je vais le laisser par défaut). Cliquez ensuite sur "Next".
 
-[//]: <> (Je retrouve plus l'image :/)
-![[Capture d'écran 2025-02-05 152947.png]]
-
 Puis, le téléchargement commencera. Cela peut prendre quelques minutes.
 
 ![Status de l'installation de Java](img/java_installer_status.png)
