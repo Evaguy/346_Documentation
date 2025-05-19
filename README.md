@@ -43,3 +43,6 @@ Head again into the "Issues" section of this repo, and create a new issue.
 State what details you want to add or modifiy (don't forget to tell me where you want to add them).
 
 This time you'll need to add the label "details missing" to your issue.
+
+## TODO :
+* Translate /Labo_Scale/ into English.
