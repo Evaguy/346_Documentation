@@ -632,7 +632,7 @@ Et les résultat que j'ai obtenu :
 |                     | 1   | 2   | 3    | 4   | 5   |
 | ------------------- | --- | --- | ---- | --- | --- |
 | Requêtes envoyées ? | 350 | 600 | 3100 | 200 | 500 |
-| Combien de réponses | 350 | 600 | 3100 | 200 | 500 |
+| Combien de réponses ? | 350 | 600 | 3100 | 200 | 500 |
 | Latence ?           | 165 | 117 | 5866 | 98  | 38  |
 
 Comme pour les premiers tests que vous aurez effectués, plus il y a de paquets HTTP transmis sur le serveur web, plus la latence est élevé.
