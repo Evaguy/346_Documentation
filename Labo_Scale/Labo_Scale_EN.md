@@ -17,8 +17,8 @@ To make the project work, we're going to install a few programs. Here's a list o
 And here's another list of programs we're installing on our local machine :
 - [Java 23](https://www.oracle.com/ch-fr/java/technologies/downloads/) (language to make JMeter work)
 - [JMeter](https://jmeter.apache.org/) (program to test the scalability of our website)
-## Première étape, installation du CMS
-Avant de pouvoir commencer les installations des multiples programmes, nous devons d'abord mettre à jour les paquets présents sur notre machine virtuelle, avec ces deux commandes :
+## First step, CMS installation
+Before we get started with the installation of the programs, we firstly need to update the package on our virtual machine, with these commands :
 
 ```
 sudo apt update
@@ -28,18 +28,17 @@ sudo apt update
 sudo apt upgrade
 ```
 
-Le "sudo" est nécessaire, car les commandes ci-dessus, qu'on veut exécuter, ne peuvent pas être exécuté par un utilisateur normal. 
-### 1) Installation d'Apache2
-Apache HTTP Server est un logiciel libre créé et maintenu par la fondation du même nom et est distribué selon les normes de la licence Apache. C'est l'un des serveurs HTTP les plus populaires. Nous allons l'installer et le configurer pour ce projet.
-Pour installer le serveur web d'Apache, vous pouvez lancer la commande suivante dans votre terminal :
+Here, "sudo" is necessary because the action we want to make cannot be done with a normal user. 
+### 1) Apache2 Installation
+Apache2 is a free HTTP server maintained by the Apache Foundation, and is distributed within the Apache licences. It's one of the most popular HTTP server. We're going to install and configure it for this project.
+To install the server, you can write this command in your terminal : 
 
 ```
 sudo apt install apache2
 ```
 
 ![Installation d'Apache2](img/apt_apache2.png)
-
-Il suffira juste d'entrer "Y" quand votre machine aura trouvé les paquets. Une fois tous les paquets téléchargés, vous pouvez activer et lancer le service avec cette commande :
+You'll need to enter "Y" when the terminal prompt you if you want to install the packages. Once every packages installed, you can start up the service of the server with this command : 
 
 ```
 sudo systemctl enable apache2 && sudo systemctl start apache2
@@ -47,22 +46,22 @@ sudo systemctl enable apache2 && sudo systemctl start apache2
 
 ![Démarrage d'Apachhe2](img/start_apache2.png)
 
-Ici, j'ai ajouté dans la commande les caractères "&&", cela permet d'exécuter deux commandes en une seule fois.
-Pour vérifier si le service est en train de tourner, vous pouvez exécuter la commande suivante, toujours dans votre terminal :
+Here, I've written "&&", this makes it so that we can enter two commands once.
+To verify if the service is up and running, you can write this command :
 
 ```
 sudo systemctl status apache2
 ```
 
-Vous devrez normalement apercevoir le résultat suivant :
+Normally, you'll see this in your terminal :
 
 ![Status d'Apache2](img/status_apache2.png)
 
-Pour quitter la "vérification", vous pouvez juste appuyer sur la touche "Q".
-### 2) Installation de PHP 8.3
-Après avoir installé Apache2, nous allons désormais installer la version 8.3 de PHP.
-PHP : Hypertext Preprocessor, plus connu sous le sigle PHP, est un langage de script libre, principalement pour produire des pages web dynamique sur un serveur web.
-Avant de pouvoir l'installer, nous allons d'abord installer quelques dépendances, d'abord "apt-transport-https" avec cette commande :
+If you want to quit, you can just press on "Q".
+### 2) PHP 8.3 Installation
+After installing Apache2, we're going to install PHP 8.3.
+PHP : Hypertext Preprocessor, mostly known by the name PHP, is a free scripting language, mostly used to create dynamic web pages.
+Before we start, we'll install some dependecy, first "apt-transport-https" with this command :
 
 ```
 sudo apt install apt-transport-https
