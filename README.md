@@ -17,20 +17,16 @@ Then, using [JMeter](https://jmeter.apache.org/), test the scalability of the Dr
 
 ## Contributing
 
-### How can I request a language ?
-[//]: <> (To actually rewrite, im almost not sure this is how PR are done lmao)
+### How can I fix the spelling ?
 Clone the repo on your machine.
 
 ```
 git clone https://github.com/Evaguy/346_Documentation.git
 ```
 
-Create and add the translated documentation in the right folder (please :p).
+Fix the spelling if you find any.
 
-Finally do a PR in this repo !
-
-### How can I fix the spelling ?
-todo
+Finally, do a PR in this repo !
 
 ### How can I add details ?
 Head into the "Issues" section of this repo, and create a new issue.
