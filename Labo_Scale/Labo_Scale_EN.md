@@ -101,7 +101,7 @@ sudo apt install php8.3-{cli,common,imap,redis,snmp,xml,mysql,zip,mbstring,curl,
 As I said before, to start the installation, press "Y".
 We can see that we're installing modules such as : cli, imap, xml, mysql, etc...
 
-I've also added one last module for PHP and our Apache server, wiht the command line : 
+I've also added one last module for PHP and our Apache server, with the command line : 
 
 ```
 sudo apt install php8.3 libapache2-mod-php8.3
