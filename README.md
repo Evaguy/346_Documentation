@@ -30,19 +30,15 @@ Create and add the translated documentation in the right folder (please :p).
 Finally do a PR in this repo !
 
 ### How can I fix the spelling ?
-To fix the spelling in any documentation, you can head into the "Issues" section of this repo, and create a new issue.
-
-The issue name should be clear so that I know which documentation needs to be fixed (ex. small typo in /blabla/blabla.md). It sould also contains where the spelling issues is (ex. this typo is at line 22).
-
-And don't forget to add the label : "spelling issue" to your issue !
+todo
 
 ### How can I add details ?
-Head again into the "Issues" section of this repo, and create a new issue.
+Head into the "Issues" section of this repo, and create a new issue.
 
 [//]: <> (To rewrite!!! lol)
 State what details you want to add or modifiy (don't forget to tell me where you want to add them).
 
-This time you'll need to add the label "details missing" to your issue.
+You'll need to add the label "details missing" to your issue.
 
 ## TODO :
 * Translate /Labo_Scale/ into English.
