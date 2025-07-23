@@ -37,14 +37,14 @@ To install the server, you can write this command in your terminal :
 sudo apt install apache2
 ```
 
-![Installation d'Apache2](img/apt_apache2.png)
+![Apache2 installation](img/apt_apache2.png)
 You'll need to enter "Y" when the terminal prompt you if you want to install the packages. Once every packages installed, you can start up the service of the server with this command : 
 
 ```
 sudo systemctl enable apache2 && sudo systemctl start apache2
 ```
 
-![Démarrage d'Apachhe2](img/start_apache2.png)
+![Apache2 starting](img/start_apache2.png)
 
 Here, I've written "&&", this makes it so that we can enter two commands once.
 To verify if the service is up and running, you can write this command :
@@ -55,7 +55,7 @@ sudo systemctl status apache2
 
 Normally, you'll see this in your terminal :
 
-![Status d'Apache2](img/status_apache2.png)
+![Apache2's status](img/status_apache2.png)
 
 If you want to quit, you can just press on "Q".
 ### 2) PHP 8.3 Installation
@@ -69,61 +69,60 @@ sudo apt install apt-transport-https
 
 ![Installation Transport-HTTPS](img/apt_transport_https.png)
 
-Ensuite, on va ajouter un dépôt qui va nous permet d'avoir les modules PHP à jour, ainsi que la clé pour y accéder.
-D'abord l'accès au dépôt :
+Then, we're going to add a repository that will let us have the latest PHP modules, and the key to access it.
+First the repository :
 
 ```
 sudo curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpp https://packages.sury.org/php/apt.gpg
 ```
 
-![Ajout du dépôt](img/repo_php.png)
+![Adding repository PHP](img/repo_php.png)
 
-Puis la clé :
+Then the key :
 
 ```
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 ```
 
-![Ajout de la clé du dépôt](img/repo_key.png)
+![Adding the key of the repository PHP](img/repo_key.png)
 
-Par la suite, on peut relancer la commande "sudo apt update" pour avoir les derniers paquets, du dépôt, à jour.
+After that, we can retype the "sudo apt update" command to have the PHP packages up to date.
 
-![Derniers paquets à jour](img/apt_update.png)
+![PHP packages up to date](img/apt_update.png)
 
-Après avoir mis à jour les derniers paquets, nous allons à présent ajouter quelques modules de PHP qui vont être utiles pour la suite du projet, en utilisant cette commande :
+Thereafter updating the package, we can add multiple PHP module that are going to be usefull and necessary for this project, using this command :
 
 ```
 sudo apt install php8.3-{cli,common,imap,redis,snmp,xml,mysql,zip,mbstring,curl,gd}
 ```
 
-![Installation de modules PHP](img/php_modules.png)
+![Installation of PHP modules](img/php_modules.png)
 
-Comme dit précédemment, pour que l'installation se lance, il suffira d'entrer la lettre "Y".
-On peut d'ailleurs voir qu'on installe des modules comme : cli, imap, xml, mysql, etc...
+As I said before, to start the installation, press "Y".
+We can see that we're installing modules such as : cli, imap, xml, mysql, etc...
 
-J'ai aussi rajouté un dernier module pour le bon fonctionnement entre PHP et notre serveur web Apache, avec cette ligne de commande :
+I've also added one last module for PHP and our Apache server, wiht the command line : 
 
 ```
 sudo apt install php8.3 libapache2-mod-php8.3
 ```
 
-![Installation dernier module PHP](img/other_php_modules.png)
+![Installation of the last modules](img/other_php_modules.png)
 
-Pour vérifier si PHP s'est bien installé, on peut utiliser la commande ci-dessous :
+To check if it's installed, you can use this command :
 
 ```
 php -v
 ```
 
-![Vérification de l'installation de PHP](img/php_ver.png)
-
-Et pour vérifier si ces modules se sont bien installé, cette fois-ci, on utilise cette commande :
+![Checking PHP installation](img/php_ver.png)
+And to check if the modules of PHP are installed, this time, you can use this command :
 
 ```
 php -m
 ```
 
-![Vérification de l'installation des modules de PHP](img/php_mod.png)
+![Checking installed PHP modules](img/php_mod.png)
 
 ### 3) Installation de Maria DB
 
