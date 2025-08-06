@@ -124,164 +124,165 @@ php -m
 
 ![Checking installed PHP modules](img/php_mod.png)
 
-### 3) Installation de Maria DB
+### 3) MariaDB Installation
 
-MariaDB est un système de gestion de bases de données (ou sous le sigle SGBD) édité sous la licence GPL. Il s'agit d'un "fork" communautaire de MySQL, un autre SGBD. Nous allons l'utiliser pour créer une base de données pour Drupal.
-D'abord, lancez la commande suivante pour l'installer :
+MariaDB is a database management system (DBMS) licensed under GPL. It's a community "fork" of MySQL, another DBMS. We're going to use it to create databases for Drupal.
+
+First, write this command to install it :
 
 ```
 sudo apt install mariadb-server
 ```
 
-![Installation de MariaDB](img/apt_mariadb.png)
+![MariaDB Installation](img/apt_mariadb.png)
 
-Puis, pour activer et lancer ce SGBD, utilisez la commande suivante :
+Then, to activate and start this DBMS, use this command :
 
 ```
 sudo systemctl start mariadb && sudo systemctl enable mariadb
 ```
 
-![Démarrage de MariaDB ](img/start_mariadb.png)
+![MariaDB Starting](img/start_mariadb.png)
 
-Enfin, pour vérifier l'état de MariaDB, vous pouvez utiliser la commande ci-dessous :
+Finally, to check its status, you can use this command below :
 
 ```
 sudo systemctl status mariadb
 ```
 
-![Status MariaDB](img/status_mariadb.png)
+![MariaDB Status](img/status_mariadb.png)
 
-### 3.1) Configurations d'une DB Drupal
+### 3.1) DB Configuration for Drupal
 
-Avant d'installer les deux derniers programmes (Composer, et Drupal), nous allons configurer une base de données, pour Drupal, en utilisant MariaDB.
+Before installing the last two programs (Composer and Drupal), we're going to configure a database, for Drupal, using MariaDB.
 
-Pour se connecter au SGBD, vous pouvez utiliser la commande suivante :
+To connect to the DBMS, you can use this command :
 
 ```
 sudo mysql -u root
 ```
 
-![Connexion au SGBD](img/mysql_connect.png)
+![SGDB Connection](img/mysql_connect.png)
 
-Pour commencer, nous allons créer un utilisateur ayant les droits nécessaires pour accéder et manipuler les données des tables de la base de données. Cette étape est indispensable, car ses informations seront requises lors de la configuration de Drupal.
+For starters, we're going to create a user with enough permission to access and manipulate the datas ot the database. This step is necessary, because these informations will be required during the configuration of Drupal.
 
-Pour créer un utilisateur, voici la commande qu'il faudra exécuter dans votre SGBD : 
+To create a user, here's the command you'll need to enter in your DBMS :  
 
 ```
 CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'votre_pwd_ici';
 ```
 
-![Création d'un utilisateur dans le SGBD](img/create_db_user.png)
+![User creation in the DBMS](img/create_db_user.png)
 
-Le nom ici n'a pas vraiment d'importance. Ce qui faut faire vraiment attention, par contre, c'est de ne pas oublier le "localhost" après le nom de l'utilisateur. 
+The username here doesn't really have importance. But, something you shouldn't forget is the "localhost" after the username.
 
-"IDENTIFIED" permet de configurer un mot de passe pour l'utilisateur. Ceci n'est pas nécessaire sauf si vous voulez rajouter une couche de protection et de sécurité sur vos bases de données. 
+"IDENTIFIED" is used to configure a password for the user. It is not necessary unless you want to add another layer of security to your databases.
 
-Ensuite, créez la base de données avec cette commande :
+Then, create the database using this command :
 
 ```
 CREATE DATABASE drupal; 
 ```
 
-![Création d'une BD](img/create_db.png)
+![DB creation](img/create_db.png)
 
-Encore une fois, le nom que vous choisissez, pour votre base de données, n'a pas vraiment d'importance, vous pouvez l'appeler comme vous le souhaitez. J'ai choisi "drupal" pour que cela soit en lien avec le projet en question.
+Again, the name that you choose, for your databases, doesn't really have importance, you can name it whatever you like. I choosed "drupal" so that for better understanding.
 
-Après cela, nous allons ajouter les droits de l'utilisateur, qu'on a créé précédemment, sur la base de données : 
+After that, you can add the permissions to the user, that we created before, on the database : 
 
 ```
 GRANT ALL PRIVILEGES ON drupal.* TO 'drupal'@'localhost';
 ```
 
-![Ajout des droits sur la BD pour l'utilisateur](img/grant_on_db_user.png)
+![Adding permissions to the user for the DB](img/grant_on_db_user.png)
 
-Pour plus de simplicité, je lui ai mis tous les droits sur toutes les tables de la base de données "drupal".
+For simplicity, I gave all the permissions on all the tables of the database named "drupal".
 
-Finalement, pour que les droits soient bien appliqués dans votre SGBD, utilisez la commande ci-dessous : 
+Finally, to applied the permission on the DMBS, use this command below : 
 
 ```
 FLUSH PRIVILEGES
 ```
 
-Puis comme nous n'allons plus utiliser le SGBD, pour l'instant, vous pouvez vous déconnecter :
+And, since we're not going to use the DBMS for now, you can disconnect from it :
 
 ```
 EXIT;
 ```
 
-![Application des droits et déconnexion du SGBD](img/flush_and_exit.png)
+![Applied the permission of the user](img/flush_and_exit.png)
 
-### 4) Installation de Composer
+### 4) Composer Installation
 
-Il y a différentes manières d'installer, et de configurer Drupal. Pour cette documentation, je vais utiliser le logiciel : Composer.
+There's multiple ways of installing, and configuring, Drupal. For this documentation, I'll use the application : Composer.
 
-Composer et un gestionnaire de dépendance libre conçu dans le langage de programmation PHP. Il nous permet d'installer des bibliothèques que le projet a besoin.
+Composer is a free dependency manager designed for the PHP language. With it, we can download libraries that our project need.
 
-Pour pouvoir installer Composer, nous allons d'abord télécharger l'installeur, en utilisant cette commande : 
+To install Composer, we're going to download his installer, using this command : 
 
 ```
 wget -O composer-setup.php https://getcomposer.org/installer
 ```
 
-![Installation de Composer](img/wget_composer.png)
+![Composer Installation](img/wget_composer.png)
 
-Puis, vous pouvez le lancer, après que l'installation soit finie :
+Then, you can launch it, after the installation is over : 
 
 ```
 sudo php composer-setup.php  --install-dir=/usr/local/bin --filename=composer
 ```
 
-![Lancement de Composer](img/start_installer_composer.png)
+![Launching Composer](img/start_installer_composer.png)
 
-On peut utiliser la commande ci-dessous pour vérifier si l'application s'est bien installée :
+We can use this command below to check if the application is correctly installed :
 
 ```
 composer -v
 ```
 
-![Vérification de l'installation de Composer](img/composer_ver.png)
+![Checking Drupal Installation](img/composer_ver.png)
 
 ### 5) Installation de Drupal
 
-Finalement, nous allons pouvoir installer Drupal !
+We can finally install Drupal !
 
-Drupal est un système de gestion de contenu (ou sous le sigle CMS) qui est libre et open-source publié sous la licence générale GNU. Comme Composer, c'est un programme écrit en PHP. Nous allons l'utiliser, dans ce projet, pour créer notre site web.
+Drupal is a free and open-source content management system (or CMS) licened under the GNU General Public License. Like Composer, it's a program written in PHP. We're going to use it to create a website for this project.
 
-Tout d'abord, installez le template de Drupal, avec la commande ci-dessous :
+Firstly, install the Drupal template using this command :
 
 ```
 sudo composer create-project drupal/recommended-project my-drupal-project
 ```
 
-Cela téléchargera tous les fichiers que nous aurons besoin, ainsi cela évitera de faire des manipulations en plus. 
+This will download every files that we're going to need, and this will avoid doing even more steps. 
 
-Ensuite, il faudra créer un fichier de configuration, sur le serveur web d'Apache, pour pouvoir accéder à Drupal dans un navigateur web. Les prochaines étapes pour l'installation et la configuration du CMS seront indiquées dans le navigateur.
+Next, you'll need to create a configuration file, on the Apache server, to acces Drupal on a browser. The next steps for the installation and the configuration of the CMS will be indicated in the browser.
 
-Tout d'abord, pour créer ce fichier de configuration, il faut se rendre dans le dossier des site disponible du serveur, en utilisant cette commande :
+First of all, to create the configuration file, go in the site available directory of the web server using this command :
 
 ```
 cd /etc/apache2/sites-available/
 ```
 
-Ensuite, pour créer ce fichier, vous pouvez exécuter la commande suivante :
+Then, to actually create the file, use this command :
 
 ```
 sudo touch drupal.conf
 ```
 
-Ici, il faut utiliser le "sudo ", car vous n'aurez pas les droits de modifications dans le dossier "/etc/apache2/sites-available". Le nom n'a pas d'importance.
+Here, "sudo" is necessary because you don't have the rights to modify in the "/etc/apache2/sites-available". The name doesn't really have importance.
 
-![Création du fichier de configuration de Drupal](img/drupal_conf.png)
+![Configuration File Creation for Drupal](img/drupal_conf.png)
 
-Pour modifier ce fichier, je vais utiliser l'éditeur de texte "Nano" :
+To modify this file, I'm going to use the text editor called "Nano" :
 
 ```
 sudo nano drupal.conf
 ```
 
-Comme dit précédemment, vous n'avez pas les droits de modifications dans le fichier, c'est pour cela qu'on doit ajouter le "sudo" au début de la commande.
+As said before, you don't have rights to modify, that's why we need to add "sudo" infront of the command.
 
-Tout d'abord, écrivez la ligne suivante, dans votre fichier :
+Foremost, write these two ligns in your file :
 
 ```
 <VirtualHost *:80>
@@ -311,14 +312,12 @@ Les dernières lignes qui vont être écrites dans le fichier concernent les "lo
 ErrorLog ${APACHE_LOG_DIR}/error.log
 CustomLog ${APACHE_LOG_DIR}/access.log combined
 ```
-
-Et pour finir, nous allons fermer la balise du début, avec cette commande :
+And to finish, we're going to close the tag that we've open at the beginning, using this command :
 
 ```
 </VirtualHost>
 ```
-
-Donc, finalement, votre fichier de configurations devrait ressembler comme le mien :
+So, your configuration file should look like this :
 
 ```
 <VirtualHost *:80>
@@ -344,13 +343,13 @@ Ensuite, il faudra remplacer le fichier de configuration de base d'Apache2 avec 
 a2dissite 000-default.conf
 ```
 
-Puis, activez le fichier de configuration en utilisant la commande ci-dessous :
+Then, activate the configuration file using this command below :
 
 ```
 sudo a2ensite drupal.conf
 ```
 
-Finalement, redémarrer le système Apache2 :
+Finally, restart Apache2 : 
 
 ```
 systemctl restart apache2
