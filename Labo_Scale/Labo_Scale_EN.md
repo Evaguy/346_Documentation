@@ -368,24 +368,24 @@ If you end up on a Apache2 page (example bellow), try to enter the last commands
 
 ![Default Apache2 page](img/apache2_def_page.png)
 
-Dans la première section, vous pouvez choisir la langue de Drupal. Pour des raisons de simplicité, j'ai décidé de mettre la langue en anglais. Ensuite, cliquez sur "Save and continue".
+In the first section, you can choose the language of Drupal. For simplicity reasons, I've decided to use English as a language. Then, click on "Save and continue".
 
-![Language de Drupal](img/drupal_lang.png)
+![Language Drupal](img/drupal_lang.png)
 
-Puis, dans la deuxième section "Choose profile", vous pouvez choisir entre trois installations différentes :
+Then, in the next section "Choose profile", you can choose between these tree types of installations :
 
 - Standard :
-	- Installation standard de Drupal, avec des configurations pré configurés. C'est celle-ci que nous allons utiliser pour créer notre site.
+	- Standard installation of Drupal, with pre-built configuration. This is the one that we're going to use to create our website.
 - Minimal :
-	- Installation sans configurations pré configurés. Pour les utilisateurs avancés.
+	- Minimal installation, without any pre-built configuration. For advanced users.
 - Demo: Umami Food Magazine (Experimental) :
-	- Installation d'un exemple de site pour montrer les capacités de Drupal.
+	- Example site to show the capacity of Drupal.
 
-Choisissiez la configuration standard et cliquez, encore une fois, sur "Save and continue".
+Choose the stardard installation and click again on "Save and continue".
 
-![Différentes configurations de Drupal](img/drupal_install_profile.png)
+![Types of installation of Drupal](img/drupal_install_profile.png)
 
-Il est possible que l'installation vous retourne des erreurs concernant des fichiers introuvables, ou des problèmes d'accès. Mais ne vous inquiétez pas, j'ai aussi eu certains de ces problèmes lors de mon installation. Donc, voici les commandes qui faudra exécuter, dans votre terminal, pour résoudre ces problèmes ! 
+It's possible that the installation returns errors about files not found, or permissions problems. But don't worry, I also got these kind of problems during my install. So here's some command that could solve those error !
 
 Création du dossier "sites/default/files" :
 
@@ -411,23 +411,23 @@ Modification des droits d'accès sur le fichier :
 chmod a+w sites/default/settings.php
 ```
 
-Après avoir effectué ces commandes, relancer la page de l'installation de Drupal, et normalement, vous devrez arriver dans la section "Set up database".
+After entering these commands, reload the page of the Drupal installation, and normally, you should end up on the "Set up database" section.
 
-Ici, entrez les informations, que vous avez saisies au chapitre quatre de cette documentation, pour la configuration de la base de données de Drupal. Puis, cliquez sur "Save and continue".
+Here, enter the informations of chapter four, for the configuration of the databases for Drupal. Then, click on "Save and continue".
 
-![Configuration de la BD pour Drupal](img/drupal_db_config.png)
+![DB Configuration of Drupal](img/drupal_db_config.png)
 
-Finalement, Drupal s'installera. Cela peut prendre quelques minutes. 
+Finally, Drupal will install. This can take some minutes. 
 
-![Installation de Drupal](img/drupal_installing.png)
+![Drupal Installation](img/drupal_installing.png)
 
-Il suffira, dans la dernière section "Configure site", que vous entrez quelques informations comme le nom de votre site, le compte de maintenance, etc...
+In the last section "Configure site", enter informations like the name of the site, the maintenace account, etc...
 
-![Dernière configurations de Drupal](img/drupal_config.png)
+![Last Configuration of Drupal](img/drupal_config.png)
 
-Normalement, votre site se rafraîchira, et vous accéderez à la page de bienvenue.
+Normally, the site with load, and you'll arrived on the welcome page.
 
-![Page de bienvenue de Drupal](img/drupal_whalecum.png)
+![Welcome page of Drupal](img/drupal_whalecum.png)
 
 ### 6) Création d'un article
 
