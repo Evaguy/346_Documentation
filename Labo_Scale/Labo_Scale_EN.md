@@ -240,9 +240,9 @@ We can use this command below to check if the application is correctly installed
 composer -v
 ```
 
-![Checking Drupal Installation](img/composer_ver.png)
+![Checking Composer Installation](img/composer_ver.png)
 
-### 5) Installation de Drupal
+### 5) Drupal Installation
 
 We can finally install Drupal !
 
@@ -289,15 +289,15 @@ Foremost, write these two ligns in your file :
 ServerName localhost
 ```
 
-Cette ligne, est une balise qui va dire au serveur d'Apache que toutes les connexions sur le port 80 (HTTP) vont être redirigé sur lui-même. Si vous avez un nom de domaine à disposition, vous pouvez replacer le localhost par ce nom. Dans mon cas, je n'ai pas de domaine, donc je vais laisser localhost.
+This lign, is a tag that tells the Apache server that every connection on the port 80 (HTTP) will get redirected to itself. If you have a domain name, you can replace the localhost with this name. In my case, I don't have a domain, so I'll keep localhost.
 
-Ensuite, vous devrez préciser, dans votre fichier de configurations, le chemin d'accès des ressources de Drupal, pour que votre serveur Apache sait qu'est ce qu'il faudra afficher lorsqu'on arrive sur le site. Dans mon cas, la ligne de commande est la suivante :
+Then, you need to precise, in the configuration file, the path to Drupal's ressources, so that the Apache server knows what to show when we'll arrive on the site. In my case, the command lign is this :
 
 ```
 DocumentRoot /home/eva/my-drupal-project/web
 ```
 
-La prochaine étape consiste à définir les paramètres de chemin d'accès des ressources :
+The next step consist of defining the parameters of the path to the ressources :
 
 ```
 <Directory /home/eva/my-drupal-project/web>
@@ -306,7 +306,7 @@ Require all granted
 </Directory>
 ```
 
-Les dernières lignes qui vont être écrites dans le fichier concernent les "log". Elles ne sont pas obligatoires, mais pour avoir plus de facilité pour le débogage, je vais quand même les ajouter dans mon fichier de configuration :
+The last lines that will be written in the file concerns the logs. They're not necessary, but useful for debugging, I'll still write it in my configuration file :
 
 ```
 ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -334,16 +334,15 @@ So, your configuration file should look like this :
 	CustomLog ${APACHE_LOG_DIR}/access.log
 </VirtualHost>
 ```
+Do the key combination "CTRL+S" to save the file, and "CTRL+X" to exit Nano, if you edited the file with this text editor.
 
-Effectuez la combinaison de touches "CTRL+S", pour sauvegarder le fichier, et "CTRL+X" pour quitter Nano, si vous avez effectué les modifications avec cet utilitaire.
-
-Ensuite, il faudra remplacer le fichier de configuration de base d'Apache2 avec le fichier qu'on vient de créer, d'abord en le désactivant avec cette commande :
+Then, you'll need to replace the orignal Apache2 configuration file with the one file we've just made, first by deactivate it with this command :
 
 ```
 a2dissite 000-default.conf
 ```
 
-Then, activate the configuration file using this command below :
+Then, by activate the other configuration file using this command below :
 
 ```
 sudo a2ensite drupal.conf
@@ -355,19 +354,19 @@ Finally, restart Apache2 :
 systemctl restart apache2
 ```
 
-### 5.1) Installation de Drupal, suite
+### 5.1) Drupal Installation, follow-up
 
-Une fois le fichier configuré, vous pouvez ouvrir votre navigateur de préférence, et entrez l'adresse IP publique de votre machine virtuelle, ainsi que le port HTTP (donc le port 80) de cette manière :
+Once the file is configured, you can open a browser of preference, and enter the public IP address of your virtual machine, with the HTTP port (so the port 80), just like this :
 
 ```
-ip_publique_machine:80
+public.ip.address.vm:80
 ```
 
-Vous devrez normalement arriver dans la première section de Drupal qui s'appelle "Choose Language".
+You should normally end up on the "Choose Language" section of Drupal.
 
-Si vous arrivez sur la page de base d'Apache2 (exemple ci-dessous), essayez de relancer les dernières commandes du point cinq.
+If you end up on a Apache2 page (example bellow), try to enter the last commands of the 5th chapter.
 
-![Page de défaut d'Apache2](img/apache2_def_page.png)
+![Default Apache2 page](img/apache2_def_page.png)
 
 Dans la première section, vous pouvez choisir la langue de Drupal. Pour des raisons de simplicité, j'ai décidé de mettre la langue en anglais. Ensuite, cliquez sur "Save and continue".
 
